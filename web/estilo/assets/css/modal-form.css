@@ -1,0 +1,15 @@
+.modal-form{
+    background: linear-gradient(110.48deg, #6D85C2 29.77%, #6D85C2 47.45%, rgba(255, 255, 255, 0) 78.44%, rgba(255, 255, 255, 0) 78.83%, rgba(255, 255, 255, 0) 78.83%), linear-gradient(180deg, #8B6A9F 99.99%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 10px;
+}
+.modal-title{
+    color: white;
+    font-size: 1.50rem !important;
+}
+.modal-header {
+    border-bottom: none;
+}
+.modal-footer {
+    border-top: none;
+    padding-top: 0;
+}

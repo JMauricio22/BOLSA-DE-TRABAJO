@@ -1,0 +1,17 @@
+.navbar {
+    padding: 0;
+    min-height: 80px;
+    background-color: #31436b!important;
+}
+.navbar navbar-nav  nav-item nav-link{
+    color: white;
+}
+.navbar-brand img {
+    width : 100px;
+    height: 40px;
+}
+/*#1e2a42*/
+
+textarea{
+    resize: none;
+}

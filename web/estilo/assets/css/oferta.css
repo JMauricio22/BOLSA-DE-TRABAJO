@@ -1,0 +1,33 @@
+#vacant-container{
+    background: white;
+    max-width: 650px;
+    width:100%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+#vacant-info{
+    color: black;
+}
+html,body{
+    background: rgb(224,224,236);
+    background: linear-gradient(90deg, rgba(224,224,236,1) 0%, rgba(95,128,166,1) 100%);
+    color:white;
+}
+.header-vacant{
+    height : 350px;
+    overflow: hidden;
+    position: relative;
+}
+.header-info{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-weight: bold;
+    font-size:2rem;
+}
+.header-vacant img{
+    width: 100%;
+    height: 100%;   
+}

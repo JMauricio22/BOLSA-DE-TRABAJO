@@ -1,0 +1,30 @@
+/*Footer*/
+.footer{
+    background-color: #10182D;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #969595;
+    min-height: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.footer .footer-social {
+    font-size: 24px;
+}
+.footer .footer-social a {
+    color: #969595;
+    margin: 8px;
+}
+@media (min-width: 768px){
+    .footer .footer-social{
+        float: right;
+    }
+}
+@media (max-width: 767px){
+    footer, .subscribe{
+        text-align: center;
+    }
+}

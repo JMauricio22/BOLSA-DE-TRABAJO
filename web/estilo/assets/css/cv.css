@@ -1,0 +1,36 @@
+.card-cv{
+    background: linear-gradient(90deg, #325BAB 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(90deg, #154E78 0%, rgba(84, 145, 189, 0.786458) 99.99%, rgba(63, 138, 192, 0) 100%);
+    filter: drop-shadow(2px 2px 20px #868080);
+    border-radius: 5px;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+    color:white;
+    padding: 20px 15px;
+    position: relative;
+}
+
+.card-header-cv{
+    display: flex;
+    border-bottom: 1px solid white;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-cv-title{
+    font-weight: bold;
+}
+
+.card-cv-text{
+    font-style: italic;
+}
+.card-cv-close{
+   position: absolute;
+   top : 0px;
+   right: 5px;
+   color: red;
+   font-size: 25px;
+   cursor: pointer;
+}
+
+

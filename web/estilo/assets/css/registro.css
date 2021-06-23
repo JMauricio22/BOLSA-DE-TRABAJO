@@ -1,0 +1,10 @@
+#container-enterprise-register {
+    min-height: 100vh;  
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;    
+    background-attachment: fixed;
+}
+.container-form {
+    max-width: 650px;
+}

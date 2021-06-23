@@ -1,0 +1,18 @@
+.btn-confirm{
+    color: white;
+    background-color: #fc4a1a;
+    border-color: #fc4a1a;
+}
+.btn-confirm:hover{
+    color: white;
+    background-color: #E04300;
+}
+.btn-cancel {
+    color : white;
+    background-color: #65607A ;
+    border-color: #65607A;
+}
+.btn-cancel:hover {
+    color : white;
+    background-color: #53505E;
+}
