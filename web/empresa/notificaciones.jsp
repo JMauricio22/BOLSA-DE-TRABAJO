@@ -17,25 +17,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <%@include file="../WEB-INF/bootstrap-links.jsp" %>
         <title>Notificaciones</title>
+        <link rel="stylesheet" href="../estilo/assets/css/header.css" />
+        <link rel="stylesheet" href="../estilo/assets/css/footer.css" />
+        <link rel="stylesheet" href="../estilo/assets/css/botones.css" />
     </head>
     <body>
-        <h1>Notificaciones</h1>
+        <header>
+            <%@include file="../WEB-INF/headerEMP.jsp" %> <br>
+        </header>
+        
+        
         <div class="container my-5">
+            <div class="alert alert-secondary" role="alert">
+                <h1>Información de Postulantes</h1>
+            </div>
             <div class="row">
                 <%
                     for (Aplicaciones a : aplicaciones) {
                 %>
                 <div class="col-sm-4 col-md-4">
-                    <div class="card">
+                    <div class="card border-primary">
                         <div class="card-header">
-                            <h3><%= a.getOferta().getTitulo()%></h3>
+                            <center><h3><%= a.getOferta().getTitulo()%></h3></center>
                         </div>
                         <div class="card-body">
-                            <p>Cargo: <%= a.getOferta().getCargo()%></p>
-                            <p>Nombres <%= a.getPostulante().getNombres()%></p>
-                            <p>Apellidos: <%= a.getPostulante().getApellidos()%></p>
-                            <p>Telefono: <%= a.getPostulante().getTelefono()%></p>
-                            <p>Email: <%= a.getPostulante().getCorreo()%></p>
+                            <p><strong>Cargo:</strong> <%= a.getOferta().getCargo()%></p>
+                            <p><strong>Nombres:</strong> <%= a.getPostulante().getNombres()%></p>
+                            <p><strong>Apellidos:</strong> <%= a.getPostulante().getApellidos()%></p>
+                            <p><strong>Telefono:</strong> <%= a.getPostulante().getTelefono()%></p>
+                            <p><strong>Email:</strong> <%= a.getPostulante().getCorreo()%></p>
                         </div>
                     </div>
                 </div>
@@ -44,5 +54,6 @@
                 %>
             </div>
         </div>
+        <%@include file="../WEB-INF/footer.jsp" %>
     </body>
 </html>
