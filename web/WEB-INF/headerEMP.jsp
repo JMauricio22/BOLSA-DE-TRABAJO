@@ -13,10 +13,7 @@
           <a class="nav-link" href="/SISTEMA1/empresa/crear-oferta">Crear Oferta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/SISTEMA1/postulante/ofertas">Ver Ofertas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/SISTEMA1/empresa/notificaciones">Mis Aplicaciones</a>
+          <a class="nav-link" href="/SISTEMA1/empresa/notificaciones">Notificaciones</a>
         </li>
       </ul>
     </div>
