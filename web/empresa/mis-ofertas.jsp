@@ -42,7 +42,12 @@
                         <td><%= o.getTitulo()%></td>
                         <td><%= o.getCargo()%></td>
                         <td><%= o.getSalario()%></td>
-                        <td>Opciones</td>
+                        <td>
+                            <form method="POST" action="/SISTEMA1/ControladorEmpresa">
+                                <input type="hidden" name="id_oferta" value=<%= o.getId() %> />
+                                <button class="btn btn-danger" type="submit" name="accion" value="eliminar">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
                     <%
                         }

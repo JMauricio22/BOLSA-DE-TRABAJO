@@ -29,18 +29,32 @@ public class OfertaDAO {
         try {
             con = conexion.getConnection();
             cs = con.prepareCall(sql);
-            cs.setInt(1,o.getId());
-            cs.setString(2,o.getTitulo());
-            cs.setString(3,o.getDescripcion());
-            cs.setString(4,o.getJornadaLaboral());
-            cs.setString(5,o.getTipoContrato());
-            cs.setDouble(6,o.getSalario());
-            cs.setString(7,o.getCargo());
+            cs.setInt(1, o.getId());
+            cs.setString(2, o.getTitulo());
+            cs.setString(3, o.getDescripcion());
+            cs.setString(4, o.getJornadaLaboral());
+            cs.setString(5, o.getTipoContrato());
+            cs.setDouble(6, o.getSalario());
+            cs.setString(7, o.getCargo());
             cs.execute();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
         return r;
+    }
+
+    public void eliminar(Oferta o) {
+        Conexion conexion = new Conexion();
+        String sql = "{call eliminarOferta(?) }";
+        try {
+            con = conexion.getConnection();
+            cs = con.prepareCall(sql);
+            cs.setInt(1, o.getId());
+            cs.execute();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

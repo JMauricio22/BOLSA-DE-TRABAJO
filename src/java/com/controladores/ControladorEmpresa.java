@@ -132,7 +132,7 @@ public class ControladorEmpresa extends HttpServlet {
         System.out.println("DOPOST EMPRESA CONTROLADOR.");
 
         String accion = request.getParameter("accion");
-
+        OfertaDAO ofertaDAO;
         switch (accion) {
             case "registrar":
                 EmpresaDAO empresaDAO = new EmpresaDAO();
@@ -140,9 +140,16 @@ public class ControladorEmpresa extends HttpServlet {
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
                 break;
             case "publicar":
-                OfertaDAO ofertaDAO = new OfertaDAO();
+                ofertaDAO = new OfertaDAO();
                 ofertaDAO.agregar(crearOferta(request));
                 request.getRequestDispatcher("/empresa/perfil.jsp").forward(request, response);
+                break;
+            case "eliminar":
+                ofertaDAO = new OfertaDAO();
+                Oferta oferta = new Oferta();
+                oferta.setId(Integer.parseInt(request.getParameter("id_oferta")));
+                ofertaDAO.eliminar(oferta);
+                response.sendRedirect("/SISTEMA1/empresa/mis-ofertas");
                 break;
         }
     }
@@ -164,23 +171,23 @@ public class ControladorEmpresa extends HttpServlet {
             rs = (ResultSet) cs.getObject(1);
             ArrayList<Aplicaciones> lista = new ArrayList();
             while (rs.next()) {
-               Oferta oferta = new Oferta();
-               Postulante postulante = new Postulante();
-               Aplicaciones aplicacion = new Aplicaciones();
-               oferta.setTitulo(rs.getString("titulo"));
-               oferta.setCargo(rs.getString("cargo"));
-               postulante.setId(rs.getInt("idpostulante"));
-               postulante.setNombres(rs.getString("nombres"));
-               postulante.setApellidos(rs.getString("apellidos"));
-               postulante.setTelefono(rs.getString("telefono"));
-               postulante.setCorreo(rs.getString("correo"));
-               aplicacion.setOferta(oferta);
-               aplicacion.setPostulante(postulante);
-               lista.add(aplicacion);
+                Oferta oferta = new Oferta();
+                Postulante postulante = new Postulante();
+                Aplicaciones aplicacion = new Aplicaciones();
+                oferta.setTitulo(rs.getString("titulo"));
+                oferta.setCargo(rs.getString("cargo"));
+                postulante.setId(rs.getInt("idpostulante"));
+                postulante.setNombres(rs.getString("nombres"));
+                postulante.setApellidos(rs.getString("apellidos"));
+                postulante.setTelefono(rs.getString("telefono"));
+                postulante.setCorreo(rs.getString("correo"));
+                aplicacion.setOferta(oferta);
+                aplicacion.setPostulante(postulante);
+                lista.add(aplicacion);
             }
             session.setAttribute("APLICACIONES", lista);
         } catch (SQLException ex) {
-           ex.printStackTrace();
+            ex.printStackTrace();
         }
     }
 
@@ -210,7 +217,7 @@ public class ControladorEmpresa extends HttpServlet {
         oferta.setDescripcion(request.getParameter("descripcionOferta"));
         return oferta;
     }
-
+    
     /**
      * Returns a short description of the servlet.
      *
