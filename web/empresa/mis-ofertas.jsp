@@ -12,6 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Mis Ofertas</title>
         <%@include file="../WEB-INF/bootstrap-links.jsp" %>
         <link rel="stylesheet" href="../estilo/assets/css/header.css" />
@@ -24,38 +25,39 @@
         </header>
 
         <div class="container my-5">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Cargo</th>
-                        <th>Salario</th>
-                        <th>Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        ArrayList<Oferta> list = (ArrayList<Oferta>) session.getAttribute("OFERTAS");
-                        for (Oferta o : list) {
-                    %>
-                    <tr>
-                        <td><%= o.getTitulo()%></td>
-                        <td><%= o.getCargo()%></td>
-                        <td><%= o.getSalario()%></td>
-                        <td>
-                            <form method="POST" action="/SISTEMA1/ControladorEmpresa">
-                                <input type="hidden" name="id_oferta" value=<%= o.getId() %> />
-                                <button class="btn btn-danger" type="submit" name="accion" value="eliminar">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <%
-                        }
-                    %>
-                </tbody>    
-            </table>
+            <div class="table-responsive">
+                <table class="table border-secondary">
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Cargo</th>
+                            <th>Salario</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            ArrayList<Oferta> list = (ArrayList<Oferta>) session.getAttribute("OFERTAS");
+                            for (Oferta o : list) {
+                        %>
+                        <tr>
+                            <td><%= o.getTitulo()%></td>
+                            <td><%= o.getCargo()%></td>
+                            <td><%= o.getSalario()%></td>
+                            <td>
+                                <form method="POST" action="/SISTEMA1/ControladorEmpresa">
+                                    <input type="hidden" name="id_oferta" value=<%= o.getId() %> />
+                                    <button class="btn btn-danger" type="submit" name="accion" value="eliminar">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                    </tbody>    
+                </table>
+            </div>
         </div>
-
         <%@include file="../WEB-INF/footer.jsp"%>    
     </body>
 </html>

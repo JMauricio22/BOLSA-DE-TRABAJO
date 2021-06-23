@@ -24,16 +24,21 @@
     </head>
     <body>
         <header>
-            <%@include file="../WEB-INF/headerPOST.jsp" %>
+            <%@include file="../WEB-INF/headerPOST.jsp" %> <br>
         </header>
         <div class="container">
             <div class="row">
-                <h1>Mis aplicaciones</h1>
+                <div class="alert alert-info" role="alert">
+                    <h1>Mis aplicaciones</h1>
+                </div>
+                
                 <div class="col-12">
                     <%
                         if (lista.isEmpty()) {
                     %>
-                    <h3>No hay Aplicaciones.</h3>
+                    <div class="alert alert-danger" role="alert">
+                       <h3>No hay Aplicaciones.</h3>
+                    </div>
                     <%
                     } else {
                     %>
