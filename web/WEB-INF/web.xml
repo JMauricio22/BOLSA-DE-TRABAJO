@@ -16,6 +16,10 @@
         <servlet-name>ControladorOferta</servlet-name>
         <servlet-class>com.controladores.ControladorOferta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorLogout</servlet-name>
+        <servlet-class>com.controladores.ControladorLogout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpresa</servlet-name>
         <url-pattern>/ControladorEmpresa</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ControladorEmpresa</servlet-name>
         <url-pattern>/empresa/notificaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorLogout</servlet-name>
+        <url-pattern>/ControladorLogout</url-pattern>
     </servlet-mapping>
     <session-config>
         <!--        <session-timeout>
