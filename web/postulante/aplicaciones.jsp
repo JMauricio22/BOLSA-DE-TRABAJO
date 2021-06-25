@@ -70,7 +70,7 @@
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <form method="POST">
+                                                <form method="POST" action="/SISTEMA1/ControladorAplicaciones">
                                                     <input type="hidden" name="id_oferta" value=<%= o.getId()%> />
                                                     <button class="link-primary btn bg-transparent" type="submit" name="accion" value="eliminar">Eliminar</button>
                                                 </form>

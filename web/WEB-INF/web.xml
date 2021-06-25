@@ -20,6 +20,10 @@
         <servlet-name>ControladorLogout</servlet-name>
         <servlet-class>com.controladores.ControladorLogout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorAplicaciones</servlet-name>
+        <servlet-class>com.controladores.ControladorAplicaciones</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorEmpresa</servlet-name>
         <url-pattern>/ControladorEmpresa</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>ControladorLogout</servlet-name>
         <url-pattern>/ControladorLogout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorAplicaciones</servlet-name>
+        <url-pattern>/ControladorAplicaciones</url-pattern>
     </servlet-mapping>
     <session-config>
         <!--        <session-timeout>
