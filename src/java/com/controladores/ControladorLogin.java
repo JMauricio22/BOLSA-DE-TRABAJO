@@ -62,18 +62,10 @@ public class ControladorLogin extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
+
         String user = request.getParameter("user");
         String pass = request.getParameter("password");
 
@@ -112,6 +104,7 @@ public class ControladorLogin extends HttpServlet {
                     session.setAttribute("USER_ID", empresa.getId());
                     session.setAttribute("EMPRESA", empresa);
                     session.setAttribute("TIPO", "EMPRESA");
+                    session.setAttribute("USER", empresa.getNombre());
 
                     System.out.println("RESULSET EMPRESA");
 
@@ -149,6 +142,7 @@ public class ControladorLogin extends HttpServlet {
                     session.setAttribute("USER_ID", postulante.getId());
                     session.setAttribute("POSTULANTE", postulante);
                     session.setAttribute("TIPO", "POSTULANTE");
+                    session.setAttribute("USER", postulante.getNombres());
 
                     System.out.println("RESULSET POSTULANTE");
 
