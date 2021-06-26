@@ -74,10 +74,9 @@
                                     <div class="col-md-8 col-lg-6 col-sm-12">
                                         <label class="form-label">Tipo de Contrato*</label>
                                         <select class="form-select" type="text" name="tipoContratoOferta">
-                                            <option value="tiempo parcial">Tiempo Parcial</option>
-                                            <option value="tiempo completo">Tiempo Completo</option>
-                                            <option value="por hora">Por Hora</option>
-                                            <option value="desde casa">Desde Casa</option>
+                                            <option value="Contrato indefinido">contrato indefinido</option>
+                                            <option value="Tiempo completo">Tiempo Completo</option>
+                                            <option value="Contrato de formacion">Contrato de formacion</option>
                                         </select>
                                     </div>
                                 </div>
