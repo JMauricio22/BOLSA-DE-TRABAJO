@@ -94,37 +94,7 @@
                                 </div>
                             </div>
                         </div><br>
-                        <div class="card">
-                            <div class="card-header bg-transparent">
-                                <h3>Requerimientos</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="row justify-content-center mb-3">
-                                    <div class="col-md-8 col-lg-6 col-sm-12">
-                                        <label class="form-label">Habilidades</label>
-                                        <select class="form-select">
-                                            <option value="">OPTION 1</option>
-                                            <option value="">OPTION 2</option>
-                                            <option value="">OPTION 3</option>
-                                            <option value="">OPTION 4</option>
-                                            <option value="">OPTION 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center mb-3">
-                                    <div class="col-md-8 col-lg-6 col-sm-12">
-                                        <label class="form-label">Idiomas</label>
-                                        <select class="form-select">
-                                            <option value="">OPTION 1</option>
-                                            <option value="">OPTION 2</option>
-                                            <option value="">OPTION 3</option>
-                                            <option value="">OPTION 4</option>
-                                            <option value="">OPTION 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row ">
                             <div class="col-12 my-4 d-flex justify-content-center">
                                 <button class="btn btn-success" type="submit" name="accion" value="publicar">PUBLICAR</button>
