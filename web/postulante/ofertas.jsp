@@ -33,15 +33,16 @@
                             %>
                             <div class="col-lg-4 col-sm-12">
 
-                                <div class="card text-dark bg-transparent mb-3 shadow">
-                                    <div class="card-header bg-transparent text-center">
-                                        <h3><%= o.getTitulo()%></h3>
+                                <div class="card text-dark bg-light mb-3 shadow">
+                                    <div class="card-header bg-transparent text-center p-3">
+                                        <h3 class="fs-3"> <%= o.getTitulo()%></h3>
+                                        <p class="text-success"><i class="bi bi-check-circle text-success"></i> Verificada por BOLSA DE TRABAJO UES</p>
                                     </div>
                                     <div class="card-body">
-                                        <p>Empresa: <%= o.getEmpresa().getNombre()%> <span>(<%= o.getEmpresa().getPais()%>)</span></p>
-                                        <p>Telefono: <%= o.getEmpresa().getTelefono()%></p>
-                                        <p>Cargo: <%= o.getCargo()%></p>
-                                        <p>Salario: <%= o.getSalario()%> <span><%= o.getTipoContrato()%></span></p>
+                                        <p class="fs-5"><i class="bi bi-building"></i> Empresa: <%= o.getEmpresa().getNombre()%> <span>(<%= o.getEmpresa().getPais()%>)</span></p>
+                                        <p class="fs-5"><i class="bi bi-telephone"></i> Telefono: <%= o.getEmpresa().getTelefono()%></p>
+                                        <p class="fs-5"><i class="bi bi-person-fill"></i> Cargo: <%= o.getCargo()%></p>
+                                        <p class="fs-5"><i class="bi bi-currency-exchange"></i> Salario: <%= o.getSalario()%> <span><%= o.getTipoContrato()%></span></p>
                                     </div>
                                     <a href=<%= "/SISTEMA1/postulante/oferta?id=" + o.getId()%>>
                                         <div class="card-footer bg-transparent">
