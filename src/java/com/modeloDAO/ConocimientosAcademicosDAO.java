@@ -7,6 +7,7 @@ package com.modeloDAO;
 
 import com.modelos.Conexion;
 import com.modelos.ConocimientosAcademicos;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,24 +18,24 @@ import java.sql.ResultSet;
  */
 public class ConocimientosAcademicosDAO {
     Connection con;
-    PreparedStatement ps;
+    CallableStatement ps;
     ResultSet rs;
     int r = 0;
     
     
     public int agregar(ConocimientosAcademicos c){
         Conexion conexion = new Conexion();
-        String sql = "insert into conocimientos_academicos values(?,?,?,?,?,?)";
+        String sql = "{ call insertarConocimientos(?,?,?,?,?,?) }";
         try{
             con = conexion.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, 1);
+            ps = con.prepareCall(sql);
+            ps.setInt(1, c.getIdConocimiento());
             ps.setString(2, c.getNombreInstitucion());
             ps.setDate(3, null);
             ps.setDate(4, null);
             ps.setString(5, c.getNombreTitulo());
             ps.setString(6, c.getTipo());
-            ps.executeUpdate();
+            ps.execute();
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();

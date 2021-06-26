@@ -26,6 +26,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -46,6 +47,8 @@ public class controladorCurriculum extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession session = request.getSession(false);
+        
         /* Conocimientos Academicos */
         String[] instituciones = request.getParameterValues("nombreInstitucion[]");
         String[] titulos = request.getParameterValues("nombreTitulo[]");
@@ -54,6 +57,7 @@ public class controladorCurriculum extends HttpServlet {
         if (instituciones != null && titulos != null) {
             for (int i = 0; i < instituciones.length; i++) {
                 ConocimientosAcademicos conocimientos = new ConocimientosAcademicos();
+                conocimientos.setIdConocimiento((Integer)session.getAttribute("USER_ID"));
                 conocimientos.setNombreInstitucion(instituciones[i]);
                 conocimientos.setNombreTitulo(titulos[i]);
                 conocimientos.setTipo("Diploma");
@@ -69,6 +73,7 @@ public class controladorCurriculum extends HttpServlet {
         if (nombrePremios != null && descripcionPremio != null) {
             for (int i = 0; i < nombrePremios.length; i++) {
                 Premios premios = new Premios();
+                premios.setId((Integer)session.getAttribute("USER_ID"));
                 premios.setTitulo(nombrePremios[i]);
                 premios.setDescripcion(descripcionPremio[i]);
                 premiosDAO.agregar(premios);
@@ -83,6 +88,7 @@ public class controladorCurriculum extends HttpServlet {
         if (nombreLaborSocial != null && descripcionLaborSocial != null) {
             for (int i = 0; i < nombreLaborSocial.length; i++) {
                 LaboresSociales laboresSociales = new LaboresSociales();
+                laboresSociales.setId((Integer)session.getAttribute("USER_ID"));
                 laboresSociales.setNombre(nombreLaborSocial[i]);
                 laboresSociales.setDescripcion(descripcionLaborSocial[i]);
                 laborSocialDAO.agregar(laboresSociales);
@@ -99,6 +105,7 @@ public class controladorCurriculum extends HttpServlet {
         if (tituloLibro != null && lugarPublicacionLibro != null && edicionLibro != null && isbnLibro != null) {
             for (int i = 0; i < tituloLibro.length; i++) {
                 Libros libro = new Libros();
+                libro.setId((Integer)session.getAttribute("USER_ID"));
                 libro.setTitulo(tituloLibro[i]);
                 libro.setLugarPublicacion(lugarPublicacionLibro[i]);
                 libro.setEdicion(edicionLibro[i]);
@@ -117,6 +124,7 @@ public class controladorCurriculum extends HttpServlet {
         if (nombreCongreso != null && lugarCongreso != null && paisCongreso != null && anfitrionCongreso != null) {
             for (int i = 0; i < nombreCongreso.length; i++) {
                 Congreso congreso = new Congreso();
+                congreso.setId((Integer)session.getAttribute("USER_ID"));
                 congreso.setNombre(nombreCongreso[i]);
                 congreso.setLugar(lugarCongreso[i]);
                 congreso.setPais(paisCongreso[i]);
@@ -135,6 +143,7 @@ public class controladorCurriculum extends HttpServlet {
         if (tituloCertificacion != null && tipoCertificacion != null && codigoCertificacion != null && institucionCertificacion != null) {
             for (int i = 0; i < tituloCertificacion.length; i++) {
                 Certificaciones certificacion = new Certificaciones();
+                certificacion.setId((Integer)session.getAttribute("USER_ID"));
                 certificacion.setTitulo(tituloCertificacion[i]);
                 certificacion.setTipo(tipoCertificacion[i]);
                 certificacion.setCodigo(Integer.parseInt(codigoCertificacion[i].trim()));
@@ -148,6 +157,7 @@ public class controladorCurriculum extends HttpServlet {
         String nivelLectura = request.getParameter("nivelLectura");
         String nivelConversacion = request.getParameter("nivelConversacion");
         String nivelEscucha = request.getParameter("nivelEscucha");
+        /*
         if (nivelEscritura != null && nivelLectura != null && nivelConversacion != null && nivelEscucha != null) {
             Lenguaje lenguaje = new Lenguaje();
 
@@ -160,8 +170,8 @@ public class controladorCurriculum extends HttpServlet {
 
             lenguajeDAO.agregar(lenguaje);
         }
-
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+         */
+        request.getRequestDispatcher("/postulante/oferta.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

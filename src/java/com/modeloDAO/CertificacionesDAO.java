@@ -7,6 +7,7 @@ package com.modeloDAO;
 
 import com.modelos.Certificaciones;
 import com.modelos.Conexion;
+import java.sql.CallableStatement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,24 +19,24 @@ import java.sql.ResultSet;
  */
 public class CertificacionesDAO {
     Connection con;
-    PreparedStatement ps;
+    CallableStatement cs;
     ResultSet rs;
     int r = 0;
     
     
     public int agregar(Certificaciones c){
         Conexion conexion = new Conexion();
-        String sql = "insert into certificaciones values(?,?,?,?,?,?)";
+        String sql = "{ call insertarCertificacion(?,?,?,?,?,?) }";
         try{
             con = conexion.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, 1);
-            ps.setString(2, c.getTipo());
-            ps.setDate(3, null);
-            ps.setInt(4, c.getCodigo());
-            ps.setString(5, c.getTitulo());
-            ps.setString(6, c.getInstitucion());
-            ps.executeUpdate();
+            cs = con.prepareCall(sql);
+            cs.setInt(1, c.getId());
+            cs.setString(2, c.getTipo());
+            cs.setDate(3, null);
+            cs.setInt(4, c.getCodigo());
+            cs.setString(5, c.getTitulo());
+            cs.setString(6, c.getInstitucion());
+            cs.execute();
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();

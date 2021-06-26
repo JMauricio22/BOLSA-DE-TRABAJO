@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <form id="CurriculumForm" action="controladorCurriculum" method="post">
+                    <form id="CurriculumForm" action="/SISTEMA1/controladorCurriculum" method="POST">
                         <!-- Seccion de Conocimientos Academicos -->
                         <div class="card">
                             <div class="card-header">

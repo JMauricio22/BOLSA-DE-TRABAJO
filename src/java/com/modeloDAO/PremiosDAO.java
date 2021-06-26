@@ -7,6 +7,7 @@ package com.modeloDAO;
 
 import com.modelos.Conexion;
 import com.modelos.Premios;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,21 +18,21 @@ import java.sql.ResultSet;
  */
 public class PremiosDAO {
     Connection con;
-    PreparedStatement ps;
+    CallableStatement ps;
     ResultSet rs;
     int r = 0;
     
     
     public int agregar(Premios p){
         Conexion conexion = new Conexion();
-        String sql = "insert into premios values(?,?,?)";
+        String sql = "{ call insertarPremio(?,?,?) }";
         try{
             con = conexion.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, 1);
+            ps = con.prepareCall(sql);
+            ps.setInt(1, p.getId());
             ps.setString(2, p.getTitulo());
             ps.setString(3, p.getDescripcion());
-            ps.executeUpdate();
+            ps.execute();
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();

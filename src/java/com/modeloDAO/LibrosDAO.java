@@ -24,17 +24,17 @@ public class LibrosDAO {
     
     public int agregar(Libros l){
         Conexion conexion = new Conexion();
-        String sql = "insert into libros values(?,?,?,?,?,?)";
+        String sql = "{ call insertarLibros(?,?,?,?,?,?) }";
         try{
             con = conexion.getConnection();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, 1);
+            ps.setInt(1, l.getId());
             ps.setString(2, l.getTitulo());
             ps.setString(3, l.getLugarPublicacion());
             ps.setDate(4, null);
             ps.setString(5, l.getEdicion());
             ps.setString(6, l.getIsbn());
-            ps.executeUpdate();
+            ps.execute();
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();

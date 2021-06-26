@@ -7,6 +7,7 @@ package com.modeloDAO;
 
 import com.modelos.Conexion;
 import com.modelos.LaboresSociales;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,21 +18,21 @@ import java.sql.ResultSet;
  */
 public class LaboresSocialesDAO {
     Connection con;
-    PreparedStatement ps;
+    CallableStatement ps;
     ResultSet rs;
     int r = 0;
     
     
     public int agregar(LaboresSociales ls){
         Conexion conexion = new Conexion();
-        String sql = "insert into labores_sociales values(?,?,?)";
+        String sql = "{ call insertarLaborSocial(?,?,?) }";
         try{
             con = conexion.getConnection();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, 1);
+            ps = con.prepareCall(sql);
+            ps.setInt(1,ls.getId());
             ps.setString(2, ls.getNombre());
             ps.setString(3, ls.getDescripcion());
-            ps.executeUpdate();
+            ps.execute();
         }catch(Exception e){
             System.out.println(e.getMessage());
             e.printStackTrace();
