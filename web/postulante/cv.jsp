@@ -193,33 +193,6 @@
                             </div>
                         </div>
 
-                        <!-- Seccion de conocimientos y habilidades -->
-                        <div class="card">
-                            <div class="card-header">
-                                <h2>Conocimientos y Habilidades</h2>
-                            </div>
-                            <div id="card-habilidades" class="card-body">
-                                <div class="row justify-content-center">
-                                    <div class="col-3">
-                                        <select id="lista-habilidades" class="form-select">
-                                            <option value="Word">Microsoft Word</option>
-                                            <option value="Excel">Microsoft Excel</option>
-                                            <option value="PowerPoint">Microsoft PowerPoint</option>
-                                            <option value="Visio">Microsoft Visio</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-2">
-                                        <button class="btn btn-outline-primary" onclick="agregarHabilidades()"><i class="bi bi-plus"></i> Añadir</button>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center my-3">
-                                    <div class="col-sm-12 col-md6" id="habilidades-selecionadas">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="row ">
                             <div class="col-12 my-4 d-flex justify-content-center">
                                 <button class="btn btn-confirm" type="submit">GUARDAR CV</button>

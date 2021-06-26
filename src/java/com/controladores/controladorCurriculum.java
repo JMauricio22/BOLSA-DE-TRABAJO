@@ -152,26 +152,7 @@ public class controladorCurriculum extends HttpServlet {
             }
         }
 
-        /* Lenguaje */
-        String nivelEscritura = request.getParameter("nivelEscritura");
-        String nivelLectura = request.getParameter("nivelLectura");
-        String nivelConversacion = request.getParameter("nivelConversacion");
-        String nivelEscucha = request.getParameter("nivelEscucha");
-        /*
-        if (nivelEscritura != null && nivelLectura != null && nivelConversacion != null && nivelEscucha != null) {
-            Lenguaje lenguaje = new Lenguaje();
-
-            lenguaje.setEscritura(nivelEscritura);
-            lenguaje.setEscritura(nivelEscritura);
-            lenguaje.setConversacion(nivelConversacion);
-            lenguaje.setEscucha(nivelEscucha);
-
-            LenguajeDAO lenguajeDAO = new LenguajeDAO();
-
-            lenguajeDAO.agregar(lenguaje);
-        }
-         */
-        request.getRequestDispatcher("/postulante/oferta.jsp").forward(request, response);
+        request.getRequestDispatcher("/postulante/aplicaciones.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
