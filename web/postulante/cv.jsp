@@ -24,6 +24,16 @@
                 <%@include file="../WEB-INF/nav.jsp" %> 
 
                 <div class="container my-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb fs-4">
+                                    <li class="breadcrumb-item">/ Postulante</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Curriculum</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
 
                     <form id="CurriculumForm" action="controladorCurriculum" method="post">
                         <!-- Seccion de Conocimientos Academicos -->

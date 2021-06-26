@@ -25,13 +25,22 @@
             <%@include file="../WEB-INF/sidebar.jsp" %> 
             <div id="content">
                 <%@include file="../WEB-INF/nav.jsp" %> 
-                <div class="container-fluid my-4">
+                <div class="container my-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb fs-4">
+                                    <li class="breadcrumb-item">/ Empresa</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Notificaciones</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                     <div>
                         <h1 class="text-center fs-3">Información de Postulantes</h1>
                     </div>
                     <div class="row">
-                        <%
-                            for (Aplicaciones a : aplicaciones) {
+                        <%                            for (Aplicaciones a : aplicaciones) {
                         %>
                         <div class="col-sm-4 col-md-4">
                             <div class="card shadow">

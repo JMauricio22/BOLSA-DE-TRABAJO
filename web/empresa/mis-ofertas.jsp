@@ -23,42 +23,54 @@
             <%@include file="../WEB-INF/sidebar.jsp" %> 
             <div id="content">
                 <%@include file="../WEB-INF/nav.jsp" %> 
-                <div class="container-fluid my-4 px-3">
+                <div class="container my-5 px-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb fs-4">
+                                    <li class="breadcrumb-item">/ Empresa</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Mis Oferta</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                     <div class="table-responsive">
-                        <table class="table border-secondary  table-striped striped table-hover">
+                        <table class="table border-secondary bg-light striped table-hover">
                             <thead>
                                 <tr>
                                     <th class="fs-5 text-center">Titulo</th>
-                                    <th class="fs-5 text-center">Salario</th>
-                                    <th class="fs-5 text-center">Tipo de Contrato</th>
-                                    <th class="fs-5 text-center">Jornada Laboral</th>
+                                    <th class="fs-5 text-center">Cargo</th>
                                     <th class="fs-5 text-center">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <%
-                                    ArrayList<Oferta> list = (ArrayList<Oferta>) session.getAttribute("OFERTAS");
+                                <%                                    ArrayList<Oferta> list = (ArrayList<Oferta>) session.getAttribute("OFERTAS");
                                     for (Oferta o : list) {
                                 %>
                                 <tr>
-                                    <td class="text-secondary text-center text-capitalize align-middle">
-                                        <%= o.getTitulo()%> (<%= o.getCargo()%>)
+                                    <td class="col-3 text-center text-capitalize align-middle">
+                                        <span class="fs-5">
+                                            <%= o.getCargo()%>
+                                        </span>
                                     </td>
 
-                                    <td class="text-secondary text-center text-capitalize align-middle">
-                                        $<%= o.getSalario()%>
+                                    <td class="col-3 text-center text-capitalize align-middle">
+                                        <p class="fs-5">
+                                            <%= o.getCargo()%>
+                                        </p>
+                                        <p>
+                                            <i class="bi bi-currency-dollar"></i><%= o.getSalario() + " (" + o.getJornadaLaboral() + ")"%> 
+                                        </p>
                                     </td>
-                                    <td class="text-secondary text-center text-capitalize align-middle">
-                                        <%= o.getTipoContrato()%>
-                                    </td>
-                                    <td class="text-secondary text-center text-capitalize align-middle">
-                                        <%= o.getJornadaLaboral()%>
-                                    </td>
-                                    <td>
+                                    <td class="col-3 align-middle">
                                         <div class="d-flex justify-content-center">
                                             <form method="POST" action="/SISTEMA1/ControladorEmpresa">
                                                 <input type="hidden" name="id_oferta" value=<%= o.getId()%> />
-                                                <button class="link-primary btn bg-transparent" type="submit" name="accion" value="eliminar">Eliminar</button>
+                                                <button class="fs-5 link-primary btn bg-transparent" type="submit" name="accion" value="eliminar"><i class="bi bi-trash"></i> Eliminar</button>
+                                            </form>
+                                            <form method="POST" action="/SISTEMA1/ControladorEmpresa">
+                                                <input type="hidden" name="id_oferta" value=<%= o.getId()%> />
+                                                <button class="fs-5 link-primary btn bg-transparent" type="submit" name="accion" value="eliminar"><i class="bi bi-clipboard"></i> Inspeccionar</button>
                                             </form>
                                         </div>
                                     </td>
