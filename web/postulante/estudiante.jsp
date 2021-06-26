@@ -1,13 +1,16 @@
+<%@page import="com.modelos.Postulante"%>
 <%@page import="com.modelos.Aplicaciones"%>
 <%@page import="java.util.ArrayList"%>
 <%
     session = request.getSession(false);
-    if (session.getAttribute("USER_ID") == null || !(session.getAttribute("TIPO") == "EMPRESA")) {
+    if (session.getAttribute("USER_ID") == null) {
         System.out.println("Inicie session");
         request.getRequestDispatcher("/SISTEMA1/login.jsp").forward(request, response);
     }
 
     ArrayList<Aplicaciones> aplicaciones = (ArrayList<Aplicaciones>) session.getAttribute("APLICACIONES");
+
+    Postulante p = (Postulante)session.getAttribute("EGRESADO");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,38 +33,20 @@
                         <div class="col-12">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb fs-4">
-                                    <li class="breadcrumb-item">/ Empresa</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Notificaciones</li>
+                                    <li class="breadcrumb-item">/ Postulante</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Estudiante</li>
+                                    <li class="breadcrumb-item active" aria-current="page">ID</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
-                    <div>
-                        <h1 class="text-center fs-3">Información de Postulantes</h1>
-                    </div>
                     <div class="row">
-                        <%                            for (Aplicaciones a : aplicaciones) {
-                        %>
-                        <div class="col-sm-4 col-md-4">
-                            <div class="card shadow">
-                                <div class="card-header bg-transparent">
-                                    <center><h3><%= a.getOferta().getTitulo()%></h3></center>
-                                </div>
-                                <div class="card-body">
-                                    <p><strong>Cargo:</strong> <%= a.getOferta().getCargo()%></p>
-                                    <p><strong>Nombres:</strong> <%= a.getPostulante().getNombres()%></p>
-                                    <p><strong>Apellidos:</strong> <%= a.getPostulante().getApellidos()%></p>
-                                    <p><strong>Telefono:</strong> <%= a.getPostulante().getTelefono()%></p>
-                                    <p><strong>Email:</strong> <%= a.getPostulante().getCorreo()%></p>
-                                </div>
-                                <div class="card-footer d-flex justify-content-center">
-                                    <a class="link link-primary" href=<%= "/SISTEMA1/postulante/mostrar-estudiante?id_est=" + a.getPostulante().getId() %> ><i class="bi bi-eye-fill"></i> Ver Curriculum</a>
-                                </div>
-                            </div>
+                        <div class="col-12">
+                            <p> <%= p.getNombres() %> </p>
+                            <p> <%= p.getApellidos() %> </p>
+                            <p> <%= p.getCorreo()%> </p>
+                            <p> <%= p.getDireccion() %> </p>
                         </div>
-                        <%
-                            }
-                        %>
                     </div>
                 </div>
             </div>

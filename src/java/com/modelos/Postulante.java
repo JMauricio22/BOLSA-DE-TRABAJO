@@ -6,6 +6,7 @@
 package com.modelos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -30,6 +31,60 @@ public class Postulante implements Serializable {
     private String rs;
     private String rutaCV;
     private String contrasena;
+    private ArrayList<Certificaciones> certificaciones;
+    private ArrayList<Congreso> congreso;
+    private ArrayList<ConocimientosAcademicos> conocimientos;
+    private ArrayList<LaboresSociales> laboresSociales;
+    private ArrayList<Libros> libros;
+    private ArrayList<Premios> premios;
+
+    public ArrayList<Certificaciones> getCertificaciones() {
+        return certificaciones;
+    }
+
+    public void setCertificaciones(ArrayList<Certificaciones> certificaciones) {
+        this.certificaciones = certificaciones;
+    }
+
+    public ArrayList<Congreso> getCongreso() {
+        return congreso;
+    }
+
+    public void setCongreso(ArrayList<Congreso> congreso) {
+        this.congreso = congreso;
+    }
+
+    public ArrayList<ConocimientosAcademicos> getConocimientos() {
+        return conocimientos;
+    }
+
+    public void setConocimientos(ArrayList<ConocimientosAcademicos> conocimientos) {
+        this.conocimientos = conocimientos;
+    }
+
+    public ArrayList<LaboresSociales> getLaboresSociales() {
+        return laboresSociales;
+    }
+
+    public void setLaboresSociales(ArrayList<LaboresSociales> laboresSociales) {
+        this.laboresSociales = laboresSociales;
+    }
+
+    public ArrayList<Libros> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(ArrayList<Libros> libros) {
+        this.libros = libros;
+    }
+
+    public ArrayList<Premios> getPremios() {
+        return premios;
+    }
+
+    public void setPremios(ArrayList<Premios> premios) {
+        this.premios = premios;
+    }
 
     public String getContrasena() {
         return contrasena;
