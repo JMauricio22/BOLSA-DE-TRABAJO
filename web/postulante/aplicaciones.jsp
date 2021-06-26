@@ -29,7 +29,7 @@
                 <div class="container my-5">
                     <div class="row">
                         <div class="text-center text-dark fs-3 text-capitalize mb-3" role="alert">
-                            <h1>Mis aplicaciones</h1>
+                            <h1><i class="bi bi-stack"></i> Mis aplicaciones</h1>
                         </div>
 
                         <div class="col-12">
@@ -41,14 +41,12 @@
                             <%
                             } else {
                             %>
-                            <table class="table table-striped table-hover">
+                            <table class="table table-hover bg-light">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="fs-5 text-center">Titulo</th>
-                                        <th scope="col" class="fs-5 text-center">Cargo</th>
-                                        <th scope="col" class="fs-5 text-center">Tipo de Contrato</th>
-                                        <th scope="col" class="fs-5 text-center">Salario</th>
-                                        <th scope="col" class="fs-5 text-center">Opciones</th>
+                                        <th scope="col" class="fs-4 text-center">Titulo</th>
+                                        <th scope="col" class="fs-4 text-center">Cargo</th>
+                                        <th scope="col" class="fs-4 text-center">Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,23 +54,26 @@
                                         for (Oferta o : lista) {
                                     %>
                                     <tr >
-                                        <th scope="row" class="text-secondary text-center text-capitalize align-middle">
-                                            <%= o.getTitulo()%>
+                                        <th scope="row" class="col-3 text-center text-capitalize align-middle">
+                                            <span class="fs-5"><%= o.getTitulo()%></span>
                                         </th>
-                                        <td class="text-secondary text-center text-capitalize align-middle">
-                                            <%= o.getCargo()%>
+                                        <td class="col-3 text-center text-capitalize align-middle">
+                                            <p class="fs-5">
+                                                <%= o.getCargo()%>
+                                            </p>
+                                            <p>
+                                                <i class="bi bi-currency-dollar"></i><%= o.getSalario() + " (" + o.getJornadaLaboral() + ")" %> 
+                                            </p>
                                         </td>
-                                        <td class="text-secondary text-center text-capitalize align-middle">
-                                            <%= o.getTipoContrato()%>
-                                        </td>
-                                        <td class="text-secondary text-center text-capitalize align-middle">
-                                            $ <%= o.getSalario()%>
-                                        </td>
-                                        <td>
+                                        <td class="col-3 align-middle">
                                             <div class="d-flex justify-content-center">
                                                 <form method="POST" action="/SISTEMA1/ControladorAplicaciones">
                                                     <input type="hidden" name="id_oferta" value=<%= o.getId()%> />
-                                                    <button class="link-primary btn bg-transparent" type="submit" name="accion" value="eliminar">Eliminar</button>
+                                                    <button class="fs-5 link-primary btn bg-transparent" type="submit" name="accion" value="eliminar"><i class="bi bi-trash"></i> Eliminar</button>
+                                                </form>
+                                                <form method="POST" action="/SISTEMA1/ControladorAplicaciones">
+                                                    <input type="hidden" name="id_oferta" value=<%= o.getId()%> />
+                                                    <button class="fs-5 link-primary btn bg-transparent" type="submit" name="accion" value="eliminar"><i class="bi bi-clipboard"></i> Inspeccionar</button>
                                                 </form>
                                             </div>
                                         </td>
